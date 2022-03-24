@@ -24,7 +24,7 @@ Post
             </thead>
             <tr>
                 <td>
-                    {{ post.header|truncatechars:50|censor }} <!-- не забываем, что переменные в шаблоне ничем не отличаются от переменных в Python. Здесь также можно получать доступ к полям класса. Например, здесь мы выводим имя, в следующем столбце описание и т. д.  -->
+                    {{ post.header|truncatechars:50|censor }}
                 </td>
                 <td>
                     {{ post.time_create|date:'d-m-Y H:i' }}

@@ -24,7 +24,6 @@ class PostList(ListView):
     context_object_name = 'post'
     queryset = Post.objects.order_by('time_create')
     paginate_by = 10
-    form_class = PostForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -45,13 +44,13 @@ class PostUpdateView(UpdateView):
     template_name = 'post_create.html'
     form_class = PostForm
 
-    # метод get_object мы используем вместо queryset, чтобы получить информацию об объекте, который мы собираемся редактировать
+
     def get_object(self, **kwargs):
         id = self.kwargs.get('pk')
         return Post.objects.get(pk=id)
 
 
-# дженерик для удаления товара
+
 class PostDeleteView(DeleteView):
     template_name = 'post_delete.html'
     queryset = Post.objects.all()
